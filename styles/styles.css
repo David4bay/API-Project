@@ -41,6 +41,10 @@ select.jokes-no {
   color: hsl(100deg, 0%, 100%);
 }
 
+option:hover {
+  outline: 1px solid hsl(100deg, 0%, 100%);
+}
+
 button.get-joke {
   padding: 1rem;
   margin: 1.4em;
