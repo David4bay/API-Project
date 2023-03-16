@@ -77,6 +77,16 @@ article.joke-api-container {
   text-align: center;
 }
 
+section.jokes-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+li.set-up {
+  list-style: none;
+}
+
 /*
     This is another cool style I came up with but chose to go with the one applied to the background.
 background: linear-gradient(hsl(240, 19%, 12%) 85%, hsl(328, 100%, 35%) 85%, hsl(222, 76%, 62%) 66%, hsl(336, 100%, 69%) 100%);

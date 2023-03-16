@@ -27,7 +27,10 @@ function highlightLabel() {
 }
 
 function showJoke(data) {
-    console.log(data[0].setup + ' ' + data[0].punchline);
+    const showInfo = data.map(function(data, index) {
+        data[index];
+    })
+    console.log(showInfo);
 }
 
 function showError() {
