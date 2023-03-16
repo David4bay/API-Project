@@ -26,7 +26,7 @@ label[for=jokes] {
   display: block;
   margin: 4rem auto 2rem auto;
   color: hsl(100deg, 0%, 100%);
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 5px;
@@ -34,6 +34,7 @@ label[for=jokes] {
 
 select.jokes-no {
   border: none;
+  outline: 1px solid hsl(100deg, 0%, 100%);
   padding: 0.2rem;
   margin-bottom: 0.8rem;
   background-color: hsl(240deg, 19%, 12%);
@@ -48,7 +49,7 @@ button.get-joke {
   text-transform: uppercase;
   font-size: 1rem;
   font-weight: 900;
-  color: #FCE22A;
+  color: hsl(53deg, 97%, 58%);
   background-color: hsl(240deg, 19%, 12%);
   border-radius: 0.2rem;
   transition: 0.4s all;
@@ -58,6 +59,14 @@ button.get-joke:hover {
   cursor: pointer;
   box-shadow: -1px -1px 0px 0px hsl(100deg, 0%, 100%);
   transform: translateY(-10px);
+  filter: drop-shadow(0px);
+}
+
+button.get-joke:active {
+  transform: translateY(0px);
+  color: hsl(240deg, 19%, 12%);
+  background-color: hsl(53deg, 97%, 58%);
+  box-shadow: none;
 }
 
 article.joke-api-container {
