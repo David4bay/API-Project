@@ -1,1 +1,22 @@
-/*# sourceMappingURL=styles.css.map */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, #2D2727, #413543, #8F43EE, #F0EB8D);
+}/*# sourceMappingURL=styles.css.map */
