@@ -2,16 +2,20 @@ const btn = document.getElementById('button');
 const select = document.getElementById('selection');
 const label = document.getElementById('label-text');
 const form = document.getElementById('joke-form');
+const jokes = document.getElementsByClassName('joke');
+const punchLine = document.getElementsByClassName('punchline');
+const errorMessage = document.getElementsByClassName('error');
 
-form.addEventListener('change', (e) => {
-    e.preventDefault();
-})
+let numberOfJokes = +select.value;
 
 button.addEventListener('click', (e) => {
     e.preventDefault();
-    let numberOfJokes = select.value;
     highlightLabel();
     fetch('https://official-joke-api.appspot.com/jokes/ten').then((response) => response.json()).then((data) => showJoke(data)).catch(() => showError())
+})
+
+form.addEventListener('change', (e) => {
+    e.preventDefault();
 })
 
 select.addEventListener('change', (e) => {
@@ -27,12 +31,28 @@ function highlightLabel() {
 }
 
 function showJoke(data) {
-    const showInfo = data.map(function(data, index) {
-        data[index];
-    })
-    console.log(showInfo);
+    for (let i = 0; i < numberOfJokes; i++) {
+        jokes[i].style.display = 'block';
+        jokes[i].innerText = data[i].setup;
+        setTimeout(() => {
+            punchLine[i].style.display = 'block';
+            punchLine[i].innerText = data[i].punchline;
+        }, 3000);
+        setTimeout(() => {
+            jokes[i].innerText = '';
+            jokes[i].style.display = 'none';
+            punchLine[i].innerText = '';
+            punchLine[i].style.display = 'none';
+        }, 30000);
+    }
 }
 
 function showError() {
-    console.log();
+    for (let i = 0; i < numberOfJokes; i++) {
+        errorMessage[i].innerText = 'Sorry, request for joke failed!';
+        setTimeout(() => {
+            errorMessage[i].innerText = '';
+        }, 10000)
+    }
+    console.log('sorry there was an error somewhere');
 }

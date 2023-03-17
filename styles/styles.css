@@ -12,6 +12,7 @@
 }
 
 body {
+  min-height: 100vh;
   font-family: "Roboto Condensed", sans-serif;
 }
 
@@ -79,12 +80,26 @@ article.joke-api-container {
 
 section.jokes-section {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
+  gap: 1rem;
 }
 
-li.set-up {
+.set-up {
+  display: flex;
+  color: hsl(100deg, 0%, 100%);
+  flex-direction: column;
+  gap: 1rem;
   list-style: none;
+  padding: 1rem;
+  margin: auto;
+  border-radius: 0.7rem;
+  background-color: hsl(240deg, 19%, 12%);
+}
+
+.punchline {
+  display: none;
+  color: hsl(53deg, 97%, 58%);
 }
 
 /*
