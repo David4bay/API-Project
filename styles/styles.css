@@ -91,6 +91,14 @@ section.jokes-section {
   margin: auto;
   border-radius: 0.7rem;
   background-color: hsl(240deg, 19%, 12%);
+  transition: 0.4s all;
+}
+
+.set-up:hover {
+  cursor: pointer;
+  box-shadow: -1px -1px 0px 0px hsl(100deg, 0%, 100%);
+  transform: translateY(-10px);
+  filter: drop-shadow(0px);
 }
 
 .joke {
