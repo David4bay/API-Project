@@ -42,10 +42,6 @@ select.jokes-no {
   color: hsl(100deg, 0%, 100%);
 }
 
-option:hover {
-  outline: 1px solid hsl(100deg, 0%, 100%);
-}
-
 button.get-joke {
   padding: 1rem;
   margin: 1.4em;
@@ -87,18 +83,27 @@ section.jokes-section {
 
 .set-up {
   display: flex;
-  color: hsl(100deg, 0%, 100%);
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
   list-style: none;
-  padding: 1rem;
   margin: auto;
   border-radius: 0.7rem;
   background-color: hsl(240deg, 19%, 12%);
 }
 
+.joke {
+  display: none;
+  font-size: 1.2rem;
+  padding: 1rem;
+  color: hsl(100deg, 0%, 100%);
+}
+
 .punchline {
   display: none;
+  font-size: 1.2rem;
+  padding: 1rem;
   color: hsl(53deg, 97%, 58%);
 }
 
