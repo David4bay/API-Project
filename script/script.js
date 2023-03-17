@@ -58,7 +58,8 @@ function showError(numberOfJokes) {
         errorMessage[i].innerText = 'Sorry, request for joke failed!';
         setTimeout(() => {
             errorMessage[i].innerText = '';
-        }, 10000)
+            errorMessage[i].style.display = 'none'
+        }, 8000)
     }
     console.log('sorry there was an error somewhere');
 }

@@ -2,7 +2,6 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
 *::before, *::after {
@@ -12,14 +11,37 @@
 }
 
 body {
-  min-height: 100vh;
   font-family: "Roboto Condensed", sans-serif;
+}
+
+div.style-1 {
+  width: 50vw;
+  height: 30vh;
+  background-color: hsl(100deg, 0%, 100%);
+  top: 0;
+  left: 0;
+  transform: skew(-45deg) translateX(-100%);
+  position: fixed;
+  z-index: 1;
+}
+
+div.style-2 {
+  width: 50vw;
+  height: 100vh;
+  background-color: hsl(100deg, 0%, 100%);
+  bottom: 0;
+  right: 0;
+  transform: skew(-45deg) translateX(100%);
+  position: fixed;
+  z-index: 1;
 }
 
 main {
   display: flex;
-  flex-direction: column;
   min-height: 100vh;
+  overflow: hidden;
+  flex-direction: column;
+  position: relative;
   background: linear-gradient(hsl(240deg, 19%, 12%), hsl(222deg, 76%, 62%));
 }
 
@@ -31,6 +53,13 @@ label[for=jokes] {
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 5px;
+  transition: 0.4s;
+}
+
+label[for=jokes]:hover {
+  cursor: pointer;
+  color: hsl(53deg, 97%, 58%);
+  transform: scale(1.1);
 }
 
 select.jokes-no {
@@ -105,6 +134,7 @@ section.jokes-section {
   border-radius: 0.7rem;
   background-color: hsl(240deg, 19%, 12%);
   transition: 0.4s all;
+  z-index: 2;
 }
 
 .set-up:hover {
@@ -133,10 +163,4 @@ section.jokes-section {
   padding: 1rem;
   color: hsl(0deg, 100%, 50%);
   font-size: 1.2rem;
-}
-
-/*
-    This is another cool style I came up with but chose to go with the one applied to the background.
-background: linear-gradient(hsl(240, 19%, 12%) 85%, hsl(328, 100%, 35%) 85%, hsl(222, 76%, 62%) 66%, hsl(336, 100%, 69%) 100%);
-
-*//*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=styles.css.map */
