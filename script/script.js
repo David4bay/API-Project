@@ -40,6 +40,7 @@ button.addEventListener('click', (e) => {
     
     function showError() {
         for (let i = 0; i < numberOfJokes; i++) {
+            errorMessage[i].style.display = 'block'
             errorMessage[i].innerText = 'Sorry, request for joke failed!';
             setTimeout(() => {
                 errorMessage[i].innerText = '';

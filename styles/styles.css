@@ -107,6 +107,13 @@ section.jokes-section {
   color: hsl(53deg, 97%, 58%);
 }
 
+.error {
+  display: none;
+  padding: 1rem;
+  color: hsl(0deg, 100%, 50%);
+  font-size: 1.2rem;
+}
+
 /*
     This is another cool style I came up with but chose to go with the one applied to the background.
 background: linear-gradient(hsl(240, 19%, 12%) 85%, hsl(328, 100%, 35%) 85%, hsl(222, 76%, 62%) 66%, hsl(336, 100%, 69%) 100%);
