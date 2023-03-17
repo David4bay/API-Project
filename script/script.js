@@ -33,7 +33,7 @@ button.addEventListener('click', (e) => {
                 jokes[i].style.display = 'none';
                 punchLine[i].innerText = '';
                 punchLine[i].style.display = 'none';
-            }, 8000);
+            }, 12000);
         }
         console.log(numberOfJokes);
     }
