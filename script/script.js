@@ -11,6 +11,12 @@ button.addEventListener('click', (e) => {
     e.preventDefault();
     let numberOfJokes = Number(select.options[select.selectedIndex].value);
     console.log(numberOfJokes)
+    for (let i = 0; i < numberOfJokes; i++) {
+        jokes[i].innerText = '';
+        jokes[i].style.display = 'none';
+        punchLine[i].innerText = '';
+        punchLine[i].style.display = 'none';
+    }
     highlightLabel();
     fetch('https://official-joke-api.appspot.com/jokes/ten').then((response) => response.json()).then((data) => showJoke(data)).catch(() => showError())
 
