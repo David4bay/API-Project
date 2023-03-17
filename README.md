@@ -4,7 +4,7 @@
 - [Live Site](#Live_Site)
 
 # Welcome Page
-Welcome to the project, this project is to test different ways of consuming an api endpoint. This is a work in progress and even though it works correctly the code is suboptimal, will implement code splitting and make functions pure functions in next update. Functions now have closure to call numberOfJokes variable, will try to optimize code further.
+Welcome to the project, this project is to test different ways of consuming an api endpoint. This is a work in progress and even though it works correctly the code is suboptimal, will implement code splitting and make functions pure functions in next update. Functions now have closure to call numberOfJokes variable, will try to optimize code further. Added hover animations and other points of interactivity to add life to the app.
 
 # Screenshot
 ![Screenshot](./src/Joke%20API%20Layout%20Design.PNG)
