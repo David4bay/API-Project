@@ -10,56 +10,55 @@ const alert = document.getElementById('notice');
 button.addEventListener('click', (e) => {
     e.preventDefault();
     let numberOfJokes = Number(select.options[select.selectedIndex].value);
-    console.log(numberOfJokes)
     for (let i = 0; i < numberOfJokes; i++) {
         jokes[i].innerText = '';
         jokes[i].style.display = 'none';
         punchLine[i].innerText = '';
         punchLine[i].style.display = 'none';
     }
-    highlightLabel();
-    fetch('https://official-joke-api.appspot.com/jokes/ten').then((response) => response.json()).then((data) => showJoke(data)).catch(() => showError())
+    highlightLabel(numberOfJokes);
+    fetch('https://official-joke-api.appspot.com/jokes/ten').then((response) => response.json()).then((data) => showJoke(data, numberOfJokes)).catch(() => showError(numberOfJokes))
 
-    function showJoke(data) {
-        for (let i = 0; i < numberOfJokes; i++) {
-            jokes[i].style.display = 'block';
-            jokes[i].innerText = data[i].setup;
-            setTimeout(() => {
-                punchLine[i].style.display = 'block';
-                punchLine[i].innerText = data[i].punchline;
-            }, 3000);
-            setTimeout(() => {
-                jokes[i].innerText = '';
-                jokes[i].style.display = 'none';
-                punchLine[i].innerText = '';
-                punchLine[i].style.display = 'none';
-            }, 14000);
-        }
-        console.log(numberOfJokes);
-    }
-    
-    function highlightLabel() {
-        notice.style.display = 'inline';
-        notice.innerText = `${numberOfJokes} new joke(s)`;
-        setTimeout(() => {
-            notice.style.display = 'none';
-        }, 3000);
-        label.style.color = 'hsl(53, 97%, 58%)'
-        label.style.transition = 'all .4s'
-        setTimeout(() => {
-            label.style.color = 'hsl(100, 0%, 100%)';
-        }, 1000);
-    }
-    function showError() {
-        for (let i = 0; i < numberOfJokes; i++) {
-            errorMessage[i].style.display = 'block'
-            errorMessage[i].innerText = 'Sorry, request for joke failed!';
-            setTimeout(() => {
-                errorMessage[i].innerText = '';
-            }, 10000)
-        }
-        console.log('sorry there was an error somewhere');
-    }
 })
 
+function showJoke(data, numberOfJokes) {
+    for (let i = 0; i < numberOfJokes; i++) {
+        jokes[i].style.display = 'block';
+        jokes[i].innerText = data[i].setup;
+        setTimeout(() => {
+            punchLine[i].style.display = 'block';
+            punchLine[i].innerText = data[i].punchline;
+        }, 3000);
+        setTimeout(() => {
+            jokes[i].innerText = '';
+            jokes[i].style.display = 'none';
+            punchLine[i].innerText = '';
+            punchLine[i].style.display = 'none';
+        }, 14000);
+    }
+}
 
+
+function highlightLabel(numberOfJokes) {
+    notice.style.display = 'inline';
+    notice.innerText = `${numberOfJokes} new joke(s)`;
+    setTimeout(() => {
+        notice.style.display = 'none';
+    }, 3000);
+    label.style.color = 'hsl(53, 97%, 58%)'
+    label.style.transition = 'all .4s'
+    setTimeout(() => {
+    label.style.color = 'hsl(100, 0%, 100%)';
+    }, 1000);
+}
+
+function showError(numberOfJokes) {
+    for (let i = 0; i < numberOfJokes; i++) {
+        errorMessage[i].style.display = 'block'
+        errorMessage[i].innerText = 'Sorry, request for joke failed!';
+        setTimeout(() => {
+            errorMessage[i].innerText = '';
+        }, 10000)
+    }
+    console.log('sorry there was an error somewhere');
+}
