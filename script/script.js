@@ -5,7 +5,7 @@ const form = document.getElementById('joke-form');
 const jokes = document.getElementsByClassName('joke');
 const punchLine = document.getElementsByClassName('punchline');
 const errorMessage = document.getElementsByClassName('error');
-let numberOfJokes = Number(select.options[select.selectedIndex].value);
+const alert = document.getElementById('notice');
 
 button.addEventListener('click', (e) => {
     e.preventDefault();
@@ -38,6 +38,18 @@ button.addEventListener('click', (e) => {
         console.log(numberOfJokes);
     }
     
+    function highlightLabel() {
+        notice.style.display = 'inline';
+        notice.innerText = `${numberOfJokes} new joke(s)`;
+        setTimeout(() => {
+            notice.style.display = 'none';
+        }, 3000);
+        label.style.color = 'hsl(53, 97%, 58%)'
+        label.style.transition = 'all .4s'
+        setTimeout(() => {
+            label.style.color = 'hsl(100, 0%, 100%)';
+        }, 1000);
+    }
     function showError() {
         for (let i = 0; i < numberOfJokes; i++) {
             errorMessage[i].style.display = 'block'
@@ -50,11 +62,4 @@ button.addEventListener('click', (e) => {
     }
 })
 
-function highlightLabel() {
-    label.style.color = 'hsl(53, 97%, 58%)'
-    label.style.transition = 'all .4s'
-    setTimeout(() => {
-        label.style.color = 'hsl(100, 0%, 100%)';
-    }, 1000);
-}
 

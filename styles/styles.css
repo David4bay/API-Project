@@ -63,7 +63,19 @@ button.get-joke:hover {
   filter: drop-shadow(0px);
 }
 
+span.alert {
+  display: none;
+  padding: 0.6rem;
+  color: hsl(100deg, 0%, 100%);
+  background-color: hsl(133deg, 89%, 48%);
+  border-radius: 0.5rem;
+  position: absolute;
+  transform: translateX(-105px) translateY(-20px);
+  transition: 0.4s all;
+}
+
 button.get-joke:active {
+  display: inline;
   transform: translateY(0px);
   color: hsl(240deg, 19%, 12%);
   background-color: hsl(53deg, 97%, 58%);
@@ -79,6 +91,7 @@ section.jokes-section {
   flex-direction: column;
   flex-wrap: wrap;
   gap: 1rem;
+  margin: 1.5rem;
 }
 
 .set-up {
