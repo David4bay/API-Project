@@ -14,6 +14,31 @@ body {
   font-family: "Roboto Condensed", sans-serif;
 }
 
+h1.title {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding-left: 1.8rem;
+  padding-right: 1.8rem;
+  letter-spacing: 0.2rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-left: 25%;
+  border-right: 25%;
+  font-size: 48px;
+  transition: all 0.4s;
+  text-transform: uppercase;
+  background-color: hsl(240deg, 19%, 12%);
+  color: hsl(100deg, 0%, 100%);
+  -webkit-animation: theme 4s infinite ease-in;
+          animation: theme 4s infinite ease-in;
+}
+
+h1.title:hover {
+  box-shadow: -10px 0px 35px 0px hsl(53deg, 97%, 58%);
+  transform: scale(1.05);
+}
+
 div.style-1 {
   width: 50vw;
   height: 30vh;
@@ -22,7 +47,12 @@ div.style-1 {
   left: 0;
   transform: skew(-45deg) translateX(-100%);
   position: fixed;
-  z-index: 1;
+  z-index: 0;
+  transition: 0.4s all;
+}
+
+div.style-1:hover {
+  background-color: hsl(53deg, 97%, 58%);
 }
 
 div.style-2 {
@@ -32,8 +62,13 @@ div.style-2 {
   bottom: 0;
   right: 0;
   transform: skew(-45deg) translateX(100%);
-  position: absolute;
-  z-index: 1;
+  position: fixed;
+  z-index: 0;
+  transition: 0.4s all;
+}
+
+div.style-2:hover {
+  background-color: hsl(53deg, 97%, 58%);
 }
 
 main {
@@ -166,15 +201,29 @@ section.jokes-section {
 }
 
 @media (max-width: 820px) {
+  button.get-joke {
+    padding: 1rem;
+    margin: 1.4em;
+    border: none;
+    font-family: Tahoma, sans-serif;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 900;
+    color: hsl(53deg, 97%, 58%);
+    background-color: hsl(240deg, 19%, 12%);
+    border-radius: 0.2rem;
+    transition: 0.4s all;
+    z-index: 2;
+  }
   div.style-1 {
     width: 50vw;
     height: 30vh;
     background-color: hsl(100deg, 0%, 100%);
     top: 0;
     left: 0;
-    transform: skew(-45deg) translateX(-120%);
+    transform: skew(-45deg) translateX(-130%);
     position: fixed;
-    z-index: 1;
+    z-index: 0;
   }
   div.style-2 {
     width: 200vw;
@@ -182,6 +231,24 @@ section.jokes-section {
     background-color: hsl(100deg, 0%, 100%);
     bottom: 0;
     right: 0;
+    transform: skew(-45deg) translateX(120%);
     position: fixed;
+    z-index: 0;
+  }
+}
+@-webkit-keyframes theme {
+  0% {
+    color: hsl(53deg, 97%, 58%);
+  }
+  100% {
+    color: hsl(100deg, 0%, 100%);
+  }
+}
+@keyframes theme {
+  0% {
+    color: hsl(53deg, 97%, 58%);
+  }
+  100% {
+    color: hsl(100deg, 0%, 100%);
   }
 }/*# sourceMappingURL=styles.css.map */
