@@ -8,8 +8,6 @@ Welcome to the project, this project is to test different ways of consuming an a
 
 # Screenshot
 ![Screenshot](./src/Joke%20API%20Layout%20Design.PNG)
-
-
 # Helpful Links
 ColorHunt is a good place to fine design inspirations
 - [Color Hunt](https://https://colorhunt.co/)

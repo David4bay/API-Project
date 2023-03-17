@@ -40,16 +40,20 @@ function showJoke(data, numberOfJokes) {
 
 
 function highlightLabel(numberOfJokes) {
-    notice.style.display = 'inline';
-    notice.innerText = `${numberOfJokes} new joke(s)`;
-    setTimeout(() => {
-        notice.style.display = 'none';
-    }, 3000);
     label.style.color = 'hsl(53, 97%, 58%)'
     label.style.transition = 'all .4s'
     setTimeout(() => {
     label.style.color = 'hsl(100, 0%, 100%)';
     }, 1000);
+    jokeCounter(numberOfJokes);
+}
+
+function jokeCounter(numberOfJokes) {
+    notice.style.display = 'inline';
+    notice.innerText = `${numberOfJokes} new joke(s)`;
+    setTimeout(() => {
+        notice.style.display = 'none';
+    }, 3000);
 }
 
 function showError(numberOfJokes) {
