@@ -11,7 +11,7 @@ button.addEventListener('click', (e) => {
     e.preventDefault();
     let numberOfJokes = Number(select.options[select.selectedIndex].value);
     let currentJokeNumber = numberOfJokes;
-    fetch('https://official-joke-api.appspot.com/jokes/ten').then((response) => response.json()).then((data) => showJoke(data, currentJokeNumber)).catch(() => showError(currentJokeNumber));
+    fetch('https://official-joke-api.appspot.com/jokes/ten').then((response) => response.json()).then((data) => showJoke(data, currentJokeNumber)).catch(() => showError());
 })
 
 function showJoke(data, currentJokeNumber) {
@@ -68,17 +68,15 @@ function jokeCounter(currentJokeNumber) {
     }, 3000);
 }
 
-function showError(currentJokeNumber) {
+function showError() {
     notice.innerText = 'No Jokes Pal!';
     notice.style.backgroundColor = 'hsl(0, 100%, 50%)';
     notice.style.display = 'inline';
-    for (let i = 0; i < currentJokeNumber; i++) {
-        errorMessage[i].style.display = 'block'
-        errorMessage[i].innerText = 'Sorry, request for joke failed!';
+    errorMessage[0].style.display = 'block'
+    errorMessage[0].innerText = 'Sorry, request for joke failed!';
         setTimeout(() => {
-            errorMessage[i].innerText = '';
-            errorMessage[i].style.display = 'none';
+            errorMessage[0].innerText = '';
+            errorMessage[0].style.display = 'none';
         }, 8000)
-    }
     console.log('sorry there was an error somewhere');
 }
