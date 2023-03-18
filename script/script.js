@@ -61,6 +61,7 @@ function highlightLabel(currentJokeNumber) {
 
 function jokeCounter(currentJokeNumber) {
     notice.style.display = 'inline';
+    notice.style.backgroundColor = 'hsl(133, 89%, 48%)';
     notice.innerText = `${currentJokeNumber} new joke(s)`;
     setTimeout(() => {
         notice.style.display = 'none';
@@ -69,7 +70,7 @@ function jokeCounter(currentJokeNumber) {
 
 function showError(currentJokeNumber) {
     notice.innerText = 'No Jokes Pal!';
-    notice.style.backgroundColor = 'red';
+    notice.style.backgroundColor = 'hsl(0, 100%, 50%)';
     notice.style.display = 'inline';
     for (let i = 0; i < currentJokeNumber; i++) {
         errorMessage[i].style.display = 'block'
