@@ -10,20 +10,15 @@ const alert = document.getElementById('notice');
 button.addEventListener('click', (e) => {
     e.preventDefault();
     let numberOfJokes = Number(select.options[select.selectedIndex].value);
-    for (let i = 0; i < numberOfJokes; i++) {
-        jokes[i].innerText = '';
-        jokes[i].style.display = 'none';
-        punchLine[i].innerText = '';
-        punchLine[i].style.display = 'none';
-    }
-    fetch('https://official-joke-api.appspot.com/jokes/ten').then((response) => response.json()).then((data) => showJoke(data, numberOfJokes)).catch(() => showError(numberOfJokes));
+    let currentJokeNumber = numberOfJokes;
+    fetch('https://official-joke-api.appspot.com/jokes/ten').then((response) => response.json()).then((data) => showJoke(data, currentJokeNumber)).catch(() => showError(currentJokeNumber));
 })
 
-function showJoke(data, numberOfJokes) {
+function showJoke(data, currentJokeNumber) {
     let jokesCalled = true;
-    highlightLabel(numberOfJokes);
-    refreshJokes(numberOfJokes, jokesCalled);
-    for (let i = 0; i < numberOfJokes; i++) {
+    highlightLabel(currentJokeNumber);
+    refreshJokes(currentJokeNumber, jokesCalled);
+    for (let i = 0; i < currentJokeNumber; i++) {
         jokes[i].style.display = 'block';
         jokes[i].innerText = data[i].setup;
         setTimeout(() => {
@@ -33,8 +28,8 @@ function showJoke(data, numberOfJokes) {
     }
 }
 
-function refreshJokes(numberOfJokes, jokesCalled) {
-    for (let i = 0; i < numberOfJokes; i++) {
+function refreshJokes(currentJokeNumber, jokesCalled) {
+    for (let i = 0; i < currentJokeNumber; i++) {
         jokes[i].innerText = '';
         jokes[i].style.display = 'none';
         punchLine[i].innerText = '';
@@ -50,33 +45,33 @@ function refreshJokes(numberOfJokes, jokesCalled) {
             jokes[i].style.display = 'none';
             punchLine[i].innerText = '';
             punchLine[i].style.display = 'none';
-            }, 5200 * numberOfJokes)
+            }, 5200 * currentJokeNumber)
     }
     }
 }
 
-function highlightLabel(numberOfJokes) {
+function highlightLabel(currentJokeNumber) {
     label.style.color = 'hsl(53, 97%, 58%)';
     label.style.transition = 'all .4s';
     setTimeout(() => {
     label.style.color = 'hsl(100, 0%, 100%)';
     }, 1000);
-    jokeCounter(numberOfJokes);
+    jokeCounter(currentJokeNumber);
 }
 
-function jokeCounter(numberOfJokes) {
+function jokeCounter(currentJokeNumber) {
     notice.style.display = 'inline';
-    notice.innerText = `${numberOfJokes} new joke(s)`;
+    notice.innerText = `${currentJokeNumber} new joke(s)`;
     setTimeout(() => {
         notice.style.display = 'none';
     }, 3000);
 }
 
-function showError(numberOfJokes) {
+function showError(currentJokeNumber) {
     notice.innerText = 'No Jokes Pal!';
     notice.style.backgroundColor = 'red';
     notice.style.display = 'inline';
-    for (let i = 0; i < numberOfJokes; i++) {
+    for (let i = 0; i < currentJokeNumber; i++) {
         errorMessage[i].style.display = 'block'
         errorMessage[i].innerText = 'Sorry, request for joke failed!';
         setTimeout(() => {
