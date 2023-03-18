@@ -23,6 +23,10 @@ button.addEventListener('click', (e) => {
 
 function showJoke(data, numberOfJokes) {
     for (let i = 0; i < numberOfJokes; i++) {
+        jokes[i].style.display = 'none';
+        jokes[i].innerText = '';
+        punchLine[i].style.display = 'none';
+        punchLine[i].innerText = '';
         jokes[i].style.display = 'block';
         jokes[i].innerText = data[i].setup;
         setTimeout(() => {
