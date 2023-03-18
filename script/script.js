@@ -17,35 +17,47 @@ button.addEventListener('click', (e) => {
         punchLine[i].style.display = 'none';
     }
     highlightLabel(numberOfJokes);
-    fetch('https://official-joke-api.appspot.com/jokes/ten').then((response) => response.json()).then((data) => showJoke(data, numberOfJokes)).catch(() => showError(numberOfJokes))
-
+    fetch('https://official-joke-api.appspot.com/jokes/ten').then((response) => response.json()).then((data) => showJoke(data, numberOfJokes)).catch(() => showError(numberOfJokes));
 })
 
 function showJoke(data, numberOfJokes) {
+    let jokesCalled = true;
+    refreshJokes(numberOfJokes, jokesCalled);
     for (let i = 0; i < numberOfJokes; i++) {
-        jokes[i].style.display = 'none';
-        jokes[i].innerText = '';
-        punchLine[i].style.display = 'none';
-        punchLine[i].innerText = '';
         jokes[i].style.display = 'block';
         jokes[i].innerText = data[i].setup;
         setTimeout(() => {
             punchLine[i].style.display = 'block';
             punchLine[i].innerText = data[i].punchline;
         }, 3000);
-        setTimeout(() => {
+    }
+}
+
+function refreshJokes(numberOfJokes, jokesCalled) {
+    for (let i = 0; i < numberOfJokes; i++) {
+        jokes[i].innerText = '';
+        jokes[i].style.display = 'none';
+        punchLine[i].innerText = '';
+        punchLine[i].style.display = 'none';
+        if (jokesCalled === false) {
             jokes[i].innerText = '';
             jokes[i].style.display = 'none';
             punchLine[i].innerText = '';
             punchLine[i].style.display = 'none';
-        }, 14000);
+        } else {
+            setTimeout(() => {
+                jokes[i].innerText = '';
+            jokes[i].style.display = 'none';
+            punchLine[i].innerText = '';
+            punchLine[i].style.display = 'none';
+            }, 5200 * numberOfJokes)
+    }
     }
 }
 
-
 function highlightLabel(numberOfJokes) {
-    label.style.color = 'hsl(53, 97%, 58%)'
-    label.style.transition = 'all .4s'
+    label.style.color = 'hsl(53, 97%, 58%)';
+    label.style.transition = 'all .4s';
     setTimeout(() => {
     label.style.color = 'hsl(100, 0%, 100%)';
     }, 1000);
@@ -66,7 +78,7 @@ function showError(numberOfJokes) {
         errorMessage[i].innerText = 'Sorry, request for joke failed!';
         setTimeout(() => {
             errorMessage[i].innerText = '';
-            errorMessage[i].style.display = 'none'
+            errorMessage[i].style.display = 'none';
         }, 8000)
     }
     console.log('sorry there was an error somewhere');
