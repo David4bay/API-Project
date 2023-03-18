@@ -16,12 +16,12 @@ button.addEventListener('click', (e) => {
         punchLine[i].innerText = '';
         punchLine[i].style.display = 'none';
     }
-    highlightLabel(numberOfJokes);
     fetch('https://official-joke-api.appspot.com/jokes/ten').then((response) => response.json()).then((data) => showJoke(data, numberOfJokes)).catch(() => showError(numberOfJokes));
 })
 
 function showJoke(data, numberOfJokes) {
     let jokesCalled = true;
+    highlightLabel(numberOfJokes);
     refreshJokes(numberOfJokes, jokesCalled);
     for (let i = 0; i < numberOfJokes; i++) {
         jokes[i].style.display = 'block';
@@ -73,6 +73,9 @@ function jokeCounter(numberOfJokes) {
 }
 
 function showError(numberOfJokes) {
+    notice.innerText = 'No Jokes Pal!';
+    notice.style.backgroundColor = 'red';
+    notice.style.display = 'inline';
     for (let i = 0; i < numberOfJokes; i++) {
         errorMessage[i].style.display = 'block'
         errorMessage[i].innerText = 'Sorry, request for joke failed!';
