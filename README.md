@@ -1,10 +1,11 @@
+# Welcome Page
+Welcome to the project, this project is to test consuming an api endpoint, [The Official Joke API](https://github.com/15Dkatz/official_joke_api) was used for the project.
+
 - [Welcome Page](#Welcome_Page)
 - [Live Site](#Live_Site)
 - [Screenshot](#Screenshot)
 - [Helpful Links](#Helpful_Links)
 
-# Welcome Page
-Welcome to the project, this project is to test consuming an api endpoint, [The Official Joke API](https://github.com/15Dkatz/official_joke_api) was used for the project.
 # Live Site
 My Joke generator live app.
 - [Joke API](https://roaring-heliotrope-f6ec4c.netlify.app)
