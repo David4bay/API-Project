@@ -28,35 +28,13 @@ function showJoke(data, currentJokeNumber) {
     }
 }
 
-function refreshJokes(currentJokeNumber, jokesCalled) {
-    for (let i = 0; i < currentJokeNumber; i++) {
-        jokes[i].innerText = '';
-        jokes[i].style.display = 'none';
-        punchLine[i].innerText = '';
-        punchLine[i].style.display = 'none';
-        if (jokesCalled === false) {
-            jokes[i].innerText = '';
-            jokes[i].style.display = 'none';
-            punchLine[i].innerText = '';
-            punchLine[i].style.display = 'none';
-        } else {
-            setTimeout(() => {
-                jokes[i].innerText = '';
-            jokes[i].style.display = 'none';
-            punchLine[i].innerText = '';
-            punchLine[i].style.display = 'none';
-            }, 5200 * currentJokeNumber)
-    }
-    }
-}
-
 function highlightLabel(currentJokeNumber) {
+    jokeCounter(currentJokeNumber);
     label.style.color = 'hsl(53, 97%, 58%)';
     label.style.transition = 'all .4s';
     setTimeout(() => {
     label.style.color = 'hsl(100, 0%, 100%)';
     }, 1000);
-    jokeCounter(currentJokeNumber);
 }
 
 function jokeCounter(currentJokeNumber) {
@@ -66,6 +44,24 @@ function jokeCounter(currentJokeNumber) {
     setTimeout(() => {
         notice.style.display = 'none';
     }, 3000);
+}
+
+function refreshJokes(currentJokeNumber, jokesCalled) {
+    for (let i = 0; i < currentJokeNumber; i++) {
+        jokes[i].innerText = '';
+        jokes[i].style.display = 'none';
+        punchLine[i].innerText = '';
+        punchLine[i].style.display = 'none';
+        if (jokesCalled !== false) {
+            setTimeout(() => {
+            jokes[i].innerText = '';
+            jokes[i].style.display = 'none';
+            punchLine[i].innerText = '';
+            punchLine[i].style.display = 'none';
+            }, 5200 * currentJokeNumber)
+
+        }
+    }
 }
 
 function showError() {
