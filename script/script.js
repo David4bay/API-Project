@@ -50,6 +50,16 @@ function highlightLabel(currentJokeNumber) {
     }, 1000);
 }
 
+/*Function to clear out all old jokes*/
+function refreshJokes(currentJokeNumber) {
+    for (let i = 0; i < 10; i++) {
+        jokes[i].innerText = '';
+        jokes[i].style.display = 'none';
+        punchLine[i].innerText = '';
+        punchLine[i].style.display = 'none';
+    }
+}
+
 /*Displays the total number of jokes that is successfully delivered*/
 function jokeCounter(currentJokeNumber) {
     /*Boolean assigned to variable to know when to refresh the old jokes */
@@ -65,27 +75,20 @@ function jokeCounter(currentJokeNumber) {
     }, 3000);
 }
 
-/*Function to clear out all old jokes*/
-function refreshJokes(currentJokeNumber) {
-    for (let i = 0; i < 10; i++) {
-        jokes[i].innerText = '';
-        jokes[i].style.display = 'none';
-        punchLine[i].innerText = '';
-        punchLine[i].style.display = 'none';
-    }
-}
 
 /*Function to autoclear previous joke if more than 5.2 seconds elapses(multiplied by number of jokes)*/
 function autoClearJokes(currentJokeNumber, jokesCalled) {
-    if (jokesCalled !== false) {
-        jokesCalled = false;
-        setTimeout(() => {
-        jokes[i].innerText = '';
-        jokes[i].style.display = 'none';
-        punchLine[i].innerText = '';
-        punchLine[i].style.display = 'none';
-        }, 5200 * currentJokeNumber)
+    for (let i = 0; i < currentJokeNumber; i++) {
+        if (jokesCalled !== false) {
+            setTimeout(() => {
+                jokes[i].innerText = '';
+                jokes[i].style.display = 'none';
+                punchLine[i].innerText = '';
+                punchLine[i].style.display = 'none';
+            }, 5200 * currentJokeNumber)
+        }
     }
+    jokesCalled = false;
 }
 
 /*Function to show failed alert message*/
