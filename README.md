@@ -5,6 +5,7 @@ Welcome to the project, this project is to test consuming an api endpoint, [The 
 - [Live Site](#Live_Site)
 - [Screenshot](#Screenshot)
 - [Helpful Links](#Helpful_Links)
+- [Update](#Update)
 
 # Live Site
 My Joke generator live app.
@@ -15,3 +16,7 @@ My Joke generator live app.
 # Helpful Links
 ColorHunt is a good place to find design inspirations
 - [Color Hunt](https://https://colorhunt.co/)
+
+# Update
+* Added comments to HTML.
+* Reduced paragraph element used to display errors to 1.

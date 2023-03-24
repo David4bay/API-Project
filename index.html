@@ -12,14 +12,23 @@
     <title>Davidbays Joke Generator</title>
 </head>
 <body>
+    <!--Main Content that houses background-->
     <main>
+        <!--Title of my app-->
         <h1 class="title">Davidbay's Joke Generator</h1>
+        <!--Upper white tile used as styling at left top corner-->
         <div class="style-1"></div>
+        <!--Lower white tile used as styling at bottom right corner-->
         <div class="style-2"></div>
+        <!--Article ascts as wrapper for the app, housing all elements-->
         <article class="joke-api-container">
+            <!--Form is used to house button and select element with its options-->
             <form class="container" id="joke-form">
+                <!--Container for number of jokes section-->
                 <div class="no-of-jokes-contain">
+                    <!--Label to indicate to user number of jokes-->
                     <label for="jokes" class="Joke-label" id="label-text">Select number of jokes</label>
+                    <!--Select element for user to pick number of jokes desired-->
                     <select name="no-of-jokes" id="selection" class="jokes-no">
                         <option value="1" id="option1">1</option>
                         <option value="3" id="option3">3</option>
@@ -27,59 +36,57 @@
                         <option value="10" id="option10">10</option>
                     </select>
                 </div>
+                <!--Span servers as alert notification to show number of jokes successfully received or failed-->
                 <span class="alert" id="notice"></span>
+                <!--Button to make request for jokes-->
                 <button id="button" type="button" class="get-joke">Get Joke</button>
             </form>
+            <!--Section acts as container to house the list elements that will hold and display jokes called from API-->
             <section class="jokes-section">
+                <!--List acts as container that holds the 'setup' for each joke-->
                     <li class="set-up">
+                        <!--First paragraph holds and displays the joke when successfully called from API-->
                         <p class="joke"></p>
+                        <!--Punchline paragraph waits for an asynchronous display of punchline through setTimeout JavaScript function-->
                         <p class="punchline"></p>
+                        <!--Error is displayed in case a joke request failed-->
                         <p class="error"></p> 
                     </li>
                     <li class="set-up">
                         <p class="joke"></p>
-                        <p class="punchline"></p>
-                        <p class="error"></p> 
+                        <p class="punchline"></p> 
                     </li>
                     <li class="set-up">
                         <p class="joke"></p>
-                        <p class="punchline"></p>
-                        <p class="error"></p> 
+                        <p class="punchline"></p> 
                     </li>
                     <li class="set-up">
                         <p class="joke"></p>
-                        <p class="punchline"></p>
-                        <p class="error"></p> 
+                        <p class="punchline"></p> 
                     </li>
                     <li class="set-up">
                         <p class="joke"></p>
-                        <p class="punchline"></p>
-                        <p class="error"></p> 
+                        <p class="punchline"></p> 
                     </li>
                     <li class="set-up">
                         <p class="joke"></p>
-                        <p class="punchline"></p>
-                        <p class="error"></p> 
+                        <p class="punchline"></p> 
                     </li>
                     <li class="set-up">
                         <p class="joke"></p>
-                        <p class="punchline"></p>
-                        <p class="error"></p> 
+                        <p class="punchline"></p> 
                     </li>
                     <li class="set-up">
                         <p class="joke"></p>
-                        <p class="punchline"></p>
-                        <p class="error"></p> 
+                        <p class="punchline"></p> 
                     </li>
                     <li class="set-up">
                         <p class="joke"></p>
-                        <p class="punchline"></p>
-                        <p class="error"></p> 
+                        <p class="punchline"></p> 
                     </li>
                     <li class="set-up">
                         <p class="joke"></p>
-                        <p class="punchline"></p>
-                        <p class="error"></p> 
+                        <p class="punchline"></p> 
                     </li>
             </section>
         </article>
