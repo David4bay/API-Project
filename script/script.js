@@ -84,10 +84,6 @@ function autoClearJokes(currentJokeNumber) {
             punchLine[i].style.display = 'none';
         }
     }, 5200 * currentJokeNumber)
-    let removedWhenDone = setTimeout(() => {
-    /*Remove setTimeout from showJoke function*/
-    clearTimeout(revealJoke);
-    }, 2990 * currentJokeNumber)
     }
 
 /*Function to show failed alert message*/
