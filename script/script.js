@@ -41,6 +41,7 @@ function showJoke(data, currentJokeNumber) {
 function refreshJokes(currentJokeNumber) {
     /*Function call highlights jokes received successfully*/
     highlightLabel(currentJokeNumber);
+    /* loop through all joke list items and make display none */
     for (let i = 0; i < 10; i++) {
         jokes[i].innerText = '';
         jokes[i].style.display = 'none';
